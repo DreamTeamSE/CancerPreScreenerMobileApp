@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 
+// TODO update this comment
 {/*
     The below code, lines 20-63 utilized chatGPT:
     * To figure out how to use react-native-webview
@@ -19,9 +20,17 @@ import { WebView } from 'react-native-webview';
 
 const SurveyScreen = () => {
   const [webViewLoaded, setWebViewLoaded] = useState(false);
+  const [time, setTime] = useState(0);
 
   const onWebViewLoad = () => {
     setWebViewLoaded(true);
+
+    setInterval(() => {
+      setTime(prevTime => {
+          console.log("Time: ", prevTime + 1);
+          return prevTime + 1;
+       });
+    }, 1000);
   };
 
   const renderWebView = () => {
