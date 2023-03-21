@@ -36,7 +36,7 @@ const SurveyScreen = () => {
   const renderWebView = () => {
     return (
       <WebView
-        source={{ uri: 'https://surveyjs.io/published?id=e2e2711d-cd72-4232-9c4b-a010ba8b1761' }}
+        source={{ uri: 'https://surveyjs.io/published?id=7765f129-0ddd-4eee-8aa3-4c6de2f5c40c' }}
         style={webViewLoaded ? styles.webView : styles.hidden}
         javaScriptEnabled={true}
         domStorageEnabled={true}
