@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 
-// TODO update this comment
 {/*
-    The below code, lines 20-63 utilized chatGPT:
+    The below code, lines 21-63 utilized chatGPT:
     * To figure out how to use react-native-webview
     * To figure out the necessary style sheets
     * Use of a state variable for loading the survey
@@ -24,28 +23,18 @@ const SurveyScreen = () => {
 
   const onWebViewLoad = () => {
     setWebViewLoaded(true);
-
-    setInterval(() => {
-      setTime(prevTime => {
-          console.log("Time: ", prevTime + 1);
-          return prevTime + 1;
-       });
-    }, 1000);
   };
 
   const renderWebView = () => {
     return (
       <WebView
-      // direct surveyjs link
-//        source={{ uri: 'https://surveyjs.io/published?id=7765f129-0ddd-4eee-8aa3-4c6de2f5c40c' }}
-      // link to the website
-        source={{ uri: 'https://runtimeterror-seniorproj.netlify.app' }}
-        style={webViewLoaded ? styles.webView : styles.hidden}
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        onLoad={onWebViewLoad}
-        originWhitelist={['*']}
-        useWebKit={true}
+        source = {{ uri: 'https://runtimeterror-seniorproj.netlify.app' }}
+        style = {webViewLoaded ? styles.webView : styles.hidden}
+        javaScriptEnabled = {true}
+        domStorageEnabled = {true}
+        onLoad = {onWebViewLoad}
+        originWhitelist = {['*']}
+        useWebKit = {true}
       />
     );
   };
