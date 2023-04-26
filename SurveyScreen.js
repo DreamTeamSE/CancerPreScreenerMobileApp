@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 {/*
-    The below code, lines 21-63 utilized chatGPT:
+    The below code regarding WebView utilized the assistance of ChatGPT to...
     * To figure out how to use react-native-webview
     * To figure out the necessary style sheets
     * Use of a state variable for loading the survey
@@ -18,17 +18,22 @@ import { WebView } from 'react-native-webview';
 */}
 
 const SurveyScreen = () => {
+  // variable used to determine if the web view has successfully loaded or not
   const [webViewLoaded, setWebViewLoaded] = useState(false);
-  const [time, setTime] = useState(0);
 
+  // holds the url to our web application
+  const webPage = 'https://runtimeterror-seniorproj.netlify.app'
+
+  // when the web view is loaded, the state variable needs to be set to true
   const onWebViewLoad = () => {
     setWebViewLoaded(true);
   };
 
+  // utilizes WebView to render our web application, sets webViewLoaded to true
   const renderWebView = () => {
     return (
       <WebView
-        source = {{ uri: 'https://runtimeterror-seniorproj.netlify.app' }}
+        source = {{ uri: webPage }}
         style = {webViewLoaded ? styles.webView : styles.hidden}
         javaScriptEnabled = {true}
         domStorageEnabled = {true}
@@ -39,6 +44,7 @@ const SurveyScreen = () => {
     );
   };
 
+  // returns the WebView and if it has not loaded yet then the user will be prompted that it is loading
   return (
     <View style={styles.container}>
       {renderWebView()}
@@ -47,6 +53,7 @@ const SurveyScreen = () => {
   );
 };
 
+// style sheet for presenting the WebView on the screen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
